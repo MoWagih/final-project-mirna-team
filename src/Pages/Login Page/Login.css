@@ -1,0 +1,11 @@
+.parentLogin{
+    background-color: rgba(0, 0, 0, 0.461);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.coverL{
+    background-image: url(../../assets/back.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
