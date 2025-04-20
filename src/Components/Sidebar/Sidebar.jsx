@@ -10,11 +10,11 @@ import { RiMastercardLine } from "react-icons/ri";
 import { MdOutlineAssignment } from "react-icons/md";
 import { FaUserCheck } from "react-icons/fa6";
 import { BiMessageSquareDetail } from "react-icons/bi";
-import { IoSettingsSharp } from "react-icons/io5";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
+
   return (
     <div className="flex">
       <div
@@ -42,37 +42,55 @@ export default function Sidebar() {
             !open && "w-full h-full"
           }`}
         >
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="dashboard"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <MdDashboard className="h-5 w-5 text-amber-50 " />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Dashboard</p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="calender"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <SlCalender className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Calender</p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="library"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <IoLibrary className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Library</p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="classroom"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <SiGoogleclassroom className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Classroom</p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="courses"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <GoStarFill className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Courses</p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="integration"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <RiMastercardLine className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>
@@ -80,7 +98,10 @@ export default function Sidebar() {
               </p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="assignments"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <MdOutlineAssignment className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>
@@ -88,7 +109,10 @@ export default function Sidebar() {
               </p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="attendance"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <FaUserCheck className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>
@@ -96,14 +120,17 @@ export default function Sidebar() {
               </p>
             </div>
           </Link>
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link
+            to="messages"
+            className="p-3 w-full  hover:bg-white/10 rounded-md"
+          >
             <div className="w-full flex gap-3">
               <BiMessageSquareDetail className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Messages</p>
             </div>
           </Link>
 
-          <Link className="p-3 w-full  hover:bg-white/10 rounded-md">
+          <Link to="login" className="p-3 w-full  hover:bg-white/10 rounded-md">
             <div className="w-full flex gap-3">
               <RiLogoutCircleRLine className="h-5 w-5 text-amber-50" />
               <p className={` text-amber-50 ${!open && "hidden"}`}>Log Out</p>

@@ -5,7 +5,7 @@
     cursor: pointer;
 }
 .coverL{
-    background-image: url(../../assets/back.gif);
+    background-image: url(../../assets/sea.gif);
     background-repeat: no-repeat;
     background-size: cover;
 }

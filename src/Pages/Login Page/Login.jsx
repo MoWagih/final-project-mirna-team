@@ -8,7 +8,7 @@ export default function Login() {
   return (
     <div className="coverL h-[100vh] w-full ">
       <div className="parentLogin h-[100vh]  flex flex-col items-center justify-center text-white">
-        <div className="h-[390px] w-80 border bg-purple-800/20 border-purple-800/20 shadow-amber-50 px-6 my-4 overflow-hidden rounded-lg">
+        <div className="h-[390px] w-80 border bg-blue-950/35 border-purple-800/20 shadow-amber-50 px-6 my-4 overflow-hidden rounded-lg">
           {/* ----Register---- */}
 
           <div
