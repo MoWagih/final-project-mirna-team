@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <div className="flex">
       <div
-        className={`bg-indigo-950 flex rounded-l-3xl flex-col items-center h-screen p-5 pt-8 duration-300  relative ${
+        className={`bg-gray-800 flex rounded-l-3xl flex-col items-center h-screen p-5 pt-8 duration-300  relative ${
           open ? "w-50" : "w-20"
         } `}
       >

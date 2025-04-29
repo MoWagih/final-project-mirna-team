@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 
 export default function Mainlayout() {
   return (
-    <div className="h-[100vh] w-full bg-amber-50 flex gap-[20px]">
+    <div className="h-[100vh] w-full bg-slate-950 flex gap-[20px]">
       <Sidebar />
       <Outlet />
       <Profile />

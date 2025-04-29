@@ -5,24 +5,9 @@ import { TbMailSpark } from "react-icons/tb";
 
 export default function Navbar() {
   return (
-    <div className="navContainer w-full h-[60px] flex flex-col">
-      <div className="h-[15%] w-full  pl-[1rem] ">
-        <div className="header-content flex justify-between  items-center">
-          <div className="search-box flex items-center border-2 w-60  border-indigo-950/80 rounded-md">
-            <MdSavedSearch className="cursor-pointer  text-3xl p-1 text-indigo-950" />
-            <input
-              className="text-indigo-950 outline-0"
-              type="text"
-              placeholder="Search here..."
-            />
-          </div>
-
-          <div className="notify flex">
-            <MdOutlineNotificationsActive className="text-3xl p-1 text-indigo-950  hover:bg-indigo-950/10 rounded-4xl cursor-pointer " />
-            <TbMailSpark className="text-3xl p-1 text-indigo-950  hover:bg-indigo-950/10 rounded-4xl cursor-pointer " />
-          </div>
-        </div>
-      </div>
+    <div className="navContainer w-full h-[40px]  flex justify-end pr-3 items-center">
+      <MdOutlineNotificationsActive className="text-3xl p-1 text-amber-50  hover:bg-cyan-950/10 rounded-4xl cursor-pointer " />
+      <TbMailSpark className="text-3xl p-1 text-amber-50  hover:bg-cyan-950/10 rounded-4xl cursor-pointer " />
     </div>
   );
 }

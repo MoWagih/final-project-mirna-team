@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+.Calender h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button{
+    appearance: none;
+}
+textarea:focus::placeholder{
+    color: transparent;
+}

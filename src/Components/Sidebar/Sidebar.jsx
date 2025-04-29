@@ -18,12 +18,12 @@ export default function Sidebar() {
   return (
     <div className="flex">
       <div
-        className={`bg-indigo-950 flex rounded-r-3xl flex-col items-center h-screen p-5 pt-8 duration-300  relative ${
+        className={`bg-gray-800 flex rounded-r-3xl flex-col items-center h-screen p-5 pt-8 duration-300  relative ${
           open ? "w-50" : "w-20"
         } `}
       >
         <IoMdArrowRoundBack
-          className={`bg-amber-50 text-indigo-950 text-3xl rounded-full absolute -right-3 top-9 cursor-pointer ${
+          className={`bg-amber-50 text-slate-950 text-3xl rounded-full absolute -right-3 top-9 cursor-pointer ${
             !open && "rotate-180 w-6 h-6"
           }`}
           onClick={() => setOpen(!open)}
