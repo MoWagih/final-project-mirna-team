@@ -1,12 +1,12 @@
-import React from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-
+import { Outlet, Routes, Route } from "react-router-dom";
+import Sidebar2 from "../../Components/Sidebar2/Sidebar2";
+import Chats from "../../Components/Chats/Chats";
 export default function Messages() {
   return (
-    <div className="w-full h-full flex flex-col">
-      <h1 className="text-amber-50 p-6 text-3xl">Messages</h1>
-      <Navbar />
-      <div className="h-full w-full bg-gray-800 flex   rounded-2xl p-2 mb-2"></div>
+    <div className="h-[100vh] w-full bg-slate-950 flex gap-[20px]">
+      <Sidebar2 />
+      <Outlet />
+      <p>messages</p>
     </div>
   );
 }

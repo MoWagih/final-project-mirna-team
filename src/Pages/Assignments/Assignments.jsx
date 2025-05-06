@@ -3,18 +3,19 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { MdInsertDriveFile } from "react-icons/md";
 import { GoFileDirectoryFill } from "react-icons/go";
 import { FaDownLong } from "react-icons/fa6";
+import { IoDocumentTextOutline } from "react-icons/io5";
 
 export default function Assignments() {
   return (
     <div className="w-full h-full flex flex-col">
-      <h1 className="text-amber-50 p-6 text-3xl">Assignments</h1>
+      <h1 className="text-amber-50 h-8 py-4 px-2 text-3xl">Assignments</h1>
       <Navbar />
       <div className="h-full w-full p-6 bg-cyan-9500 bg-gray-800 border-10 border-slate-900 flex gap-5 flex-col rounded-2xl  mb-2">
         <h1 className="text-2xl text-amber-50">Assignment Activity</h1>
         <p className="text-amber-50">Write a short about your assignment</p>
         <div className="file w-full h-[75%] justify-between  flex flex-row">
           <h1 className="text-2xl text-amber-50">File Submissions</h1>
-          <div className="box w-[70%] bg-gray-800 border-4 border-slate-900 shadow-lg shadow-slate-950 rounded-2xl h-full flex flex-col  p-3 items-center">
+          <div className="box w-[70%] bg-gray-800 border-4 border-slate-900 shadow-lg shadow-amber-100 rounded-2xl h-full flex flex-col  p-3 items-center">
             <h1 className="text-amber-50 text-2xl">
               Maximum file size 1 MB, Maximum number of file : 10
             </h1>

@@ -13,6 +13,59 @@ import { BiMessageSquareDetail } from "react-icons/bi";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 export default function Sidebar() {
+  const [Links] = useState([
+    {
+      name: "dashboard",
+      icon: <MdDashboard className="h-5 w-5 text-amber-50 " />,
+      path: "/dashboard",
+    },
+    {
+      name: "calender",
+      icon: <SlCalender className="h-5 w-5 text-amber-50 " />,
+      path: "/calender",
+    },
+    {
+      name: "library",
+      icon: <IoLibrary className="h-5 w-5 text-amber-50 " />,
+      path: "/library",
+    },
+    {
+      name: "classroom",
+      icon: <SiGoogleclassroom className="h-5 w-5 text-amber-50 " />,
+      path: "/classroom",
+    },
+    {
+      name: "courses",
+      icon: <GoStarFill className="h-5 w-5 text-amber-50 " />,
+      path: "/courses",
+    },
+    {
+      name: "integration",
+      icon: <RiMastercardLine className="h-5 w-5 text-amber-50 " />,
+      path: "/integration",
+    },
+    {
+      name: "assignments",
+      icon: <MdOutlineAssignment className="h-5 w-5 text-amber-50 " />,
+      path: "/assignments",
+    },
+    {
+      name: "attendance",
+      icon: <FaUserCheck className="h-5 w-5 text-amber-50 " />,
+      path: "/attendance",
+    },
+    {
+      name: "messages",
+      icon: <BiMessageSquareDetail className="h-5 w-5 text-amber-50 " />,
+      path: "/messages",
+    },
+    {
+      name: "login",
+      icon: <RiLogoutCircleRLine className="h-5 w-5 text-amber-50 " />,
+      path: "/login",
+    },
+  ]);
+
   const [open, setOpen] = useState(true);
 
   return (
@@ -42,100 +95,22 @@ export default function Sidebar() {
             !open && "w-full h-full"
           }`}
         >
-          <Link
-            to="dashboard"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <MdDashboard className="h-5 w-5 text-amber-50 " />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Dashboard</p>
-            </div>
-          </Link>
-          <Link
-            to="calender"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <SlCalender className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Calender</p>
-            </div>
-          </Link>
-          <Link
-            to="library"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <IoLibrary className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Library</p>
-            </div>
-          </Link>
-          <Link
-            to="classroom"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <SiGoogleclassroom className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Classroom</p>
-            </div>
-          </Link>
-          <Link
-            to="courses"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <GoStarFill className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Courses</p>
-            </div>
-          </Link>
-          <Link
-            to="integration"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <RiMastercardLine className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>
-                Integration
-              </p>
-            </div>
-          </Link>
-          <Link
-            to="assignments"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <MdOutlineAssignment className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>
-                Assignments
-              </p>
-            </div>
-          </Link>
-          <Link
-            to="attendance"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <FaUserCheck className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>
-                Attendance
-              </p>
-            </div>
-          </Link>
-          <Link
-            to="messages"
-            className="p-3 w-full  hover:bg-white/10 rounded-md"
-          >
-            <div className="w-full flex gap-3">
-              <BiMessageSquareDetail className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Messages</p>
-            </div>
-          </Link>
-
-          <Link to="login" className="p-3 w-full  hover:bg-white/10 rounded-md">
-            <div className="w-full flex gap-3">
-              <RiLogoutCircleRLine className="h-5 w-5 text-amber-50" />
-              <p className={` text-amber-50 ${!open && "hidden"}`}>Log Out</p>
-            </div>
-          </Link>
+          {Links.map((el, index) => {
+            return (
+              <Link
+                to={el.path}
+                key={index}
+                className="p-3 w-full  hover:bg-amber-500 rounded-md"
+              >
+                <div className="w-full flex gap-3">
+                  {el.icon}
+                  <p className={` text-amber-50 ${!open && "hidden"}`}>
+                    {el.name}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

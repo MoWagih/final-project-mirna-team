@@ -1,9 +1,9 @@
 import React from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Profile from "../../Components/Profile/Profile";
-import Navbar from "../../Components/Navbar/Navbar";
-import Dashboard from "../Dashboard/Dashboard";
+
 import { Outlet } from "react-router-dom";
+import Dashboard from "../Dashboard/Dashboard";
 
 export default function Mainlayout() {
   return (

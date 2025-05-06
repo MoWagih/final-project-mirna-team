@@ -10,3 +10,26 @@ input[type='number']::-webkit-inner-spin-button{
 textarea:focus::placeholder{
     color: transparent;
 }
+.current-day{
+    background-color: #ef9011;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5rem 1rem rgba(239, 144, 17, 0.3);
+}
+.events::-webkit-scrollbar{
+  width: 10px;
+  padding: 6px;
+}
+.events::-webkit-scrollbar-track{
+    background: linear-gradient(180deg, #022954, #ae4900);
+    border-radius: 10px;
+    border: 2px solid #0a0f2c; 
+  }
+  .events::-webkit-scrollbar-thumb{
+    background-color: #ef9011;
+    box-shadow: 0 0 1.5rem 1rem rgba(239, 143, 17, 0.16);
+    border-radius: 10px;
+  
+  }
+  .events::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #024282, #a46001);
+  }
