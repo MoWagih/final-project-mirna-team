@@ -3,14 +3,17 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import Profile from "../../Components/Profile/Profile";
 
 import { Outlet } from "react-router-dom";
-import Dashboard from "../Dashboard/Dashboard";
 
 export default function Mainlayout() {
   return (
-    <div className="h-[100vh] w-full bg-slate-950 flex gap-[20px]">
-      <Sidebar />
+    <div className="flex bg-blue-950 overflow-hidden h-[100vh]">
+    {/* sidebar هنا */}
+    <Sidebar />
+
+    {/* هنا بيظهر المحتوى حسب الراوت */}
+    <div className="flex-1 p-4">
       <Outlet />
-      <Profile />
     </div>
+  </div>
   );
 }

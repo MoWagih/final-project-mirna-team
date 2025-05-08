@@ -6,29 +6,54 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Login() {
+  
+  const navigate = useNavigate();
   const userEmail = useRef();
   const userPassword = useRef();
-  const [data, setData] = useState([]);
-  const navigate = useNavigate();
-  useEffect(() => {
-    axios
-      .get("http://82.112.241.233:1400/api/system-users/:id")
-      .then((res) => {
-        const user = res.data.data;
-        // setData(user);
-        console.log(user);
-        // if (user.Role === "Teacher") {
-        //   navigate("/dashboard2");
-        // } else if (user.Role === "Student") {
-        //   navigate("/");
-        // } else {
-        //   alert("User Not Found");
-        // }
-      })
-      .catch((err) => {
-        console.error("Error fetching user:", err);
+
+  const handleLogin = async (e)=> {
+    e.preventDefault();
+    try {
+      const email = userEmail.current.value;
+      const password = userPassword.current.value;  
+  
+      const res = await axios.post("http://82.112.241.233:1400/api/auth/local", {
+        identifier: email,
+        password: password,
       });
-  }, []);
+  
+      const { jwt } = res.data;
+      localStorage.setItem("token" , jwt);
+
+      const meRes = await axios.get("http://82.112.241.233:1400/api/users/me", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+
+      const user = meRes.data;
+      localStorage.setItem("user", JSON.stringify(user));
+
+      const role = user?.User_Role;
+      console.log("User role:", role);
+      
+      if (role === "Teacher") {
+      navigate("/TeacherDashboard");
+    } else if (role === "Student") {
+      navigate("/StudentDashboard");
+    } else {
+      alert(`Role '${role}' not recognized`);
+    }
+      
+    }
+    catch (err) {
+      console.error("Login failed:", err);
+      alert("Email or password incorrect");
+    }
+  };
+  
+  
+ 
   return (
     <div className="coverL h-[100vh] w-full ">
       <div className="parentLogin h-[100vh]  flex flex-col items-center justify-center text-white">
@@ -37,7 +62,8 @@ export default function Login() {
 
           <div>
             <h2 className="text-3xl font-bold pb-6 text-center">Login</h2>
-            <form className="flex flex-col items-center " action="">
+            
+            <form className="flex flex-col items-center" onSubmit={handleLogin}>
               <div className="w-full relative">
                 <input
                   className="w-full border  border-amber-100  rounded-full py-2 px-4 my-2 bg-transparent"

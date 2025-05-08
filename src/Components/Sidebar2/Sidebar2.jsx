@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { usePaths } from "../../Pages/Store/Zustand";
+import { IoMdLogOut } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 export default function Sidebar2() {
   const { paths } = usePaths();
   const Location = useLocation();
@@ -36,12 +38,12 @@ export default function Sidebar2() {
 }
 
 {
-  /* <Link
+ <Link
           to="profile2"
           className="p-3 w-full  hover:bg-white/10 rounded-md"
         >
           <div className="w-full flex gap-3">
             <CgProfile className="h-8 w-8 text-amber-50 " />
           </div>
-        </Link> */
+        </Link>
 }

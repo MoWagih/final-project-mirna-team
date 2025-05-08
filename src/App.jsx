@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login Page/Login";
-import Fram1 from "./Pages/Fram1/Fram1";
 import Mainlayout from "./Pages/Mainlayout/Mainlayout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Assignments from "./Pages/Assignments/Assignments";
@@ -14,33 +13,56 @@ import Attendance from "./Pages/Attendance/Attendance";
 import Messages from "./Pages/Messages/Messages";
 import Chats from "./Components/Chats/Chats";
 import { usePaths } from "./Pages/Store/Zustand";
-import TeacherDashboard from "./Components/Teacherdash/TeacherDashboard";
+import TeacherLayout from "./Pages/TeacherLayout/TeacherLayout";
+import DashboardTeacher from "./Components/TeacherDashboard/DashboardTeacher";
+import TeacherExams from "./Pages/TeacherExams/TeacherExams";
+import TeacherClassroom from "./Pages/Classroom/TeacherClassroom";
+import TeacherCourses from "./Pages/Courses/TeacherCourses";
+import TeacherBooks from "./Pages/Library/TeacherBooks";
+
 
 export default function App() {
   const { paths } = usePaths();
+  const [role, setRole] = useState(null);
+
+useEffect(() => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) setRole(user.User_Role);
+}, []);
+
   return (
-    <div className="w-[100%] h-[100vh]">
-      {/* Student mood */}
+    <div className="w-full h-full">
       <Routes>
+      {role === "Student" && (
+        // Student Routes
         <Route path="/" element={<Mainlayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="calender" element={<Calender />} />
-          <Route path="library" element={<Library />} />
-          <Route path="classroom" element={<Classroom />} />
-          <Route path="courses" element={<Courses />} />
-          <Route path="integration" element={<Integration />} />
-          <Route path="assignments" element={<Assignments />} />
-          <Route path="attendance" element={<Attendance />} />
-        </Route>
+          <Route path="StudentDashboard" element={<Dashboard />} />
+              <Route path="calender" element={<Calender />} />
+              <Route path="library" element={<Library />} />
+              <Route path="classroom" element={<Classroom />} />
+              <Route path="courses" element={<Courses />} />
+              <Route path="integration" element={<Integration />} />
+              <Route path="assignments" element={<Assignments />} />
+              <Route path="attendance" element={<Attendance />} />
+              <Route path="*" element={<h1>404 - Page Not Found</h1>} /></Route>
+        )}
 
-        {/* Teacher mood */}
-        <Route path="/" element={<TeacherDashboard />}>
-          <Route index element={<h1>HeLLO THERE!</h1>} />
-          <Route path="dashboard2" element={<h1>Hello</h1>} />
-        </Route>
+        {role === "Teacher" && (
+          // Teacher Routs
+          <Route path="/" element={<TeacherLayout />}>
+            <Route index element={<DashboardTeacher />} />
+            <Route path="TeacherDashboard" element={<DashboardTeacher />} />
+            <Route path="TeacherExams" element={<TeacherExams />} />
+            <Route path="calender" element={<Calender />} />
+            <Route path="library" element={<TeacherBooks />} />
+            <Route path="courses" element={<TeacherCourses />} />
+            <Route path="TeacherClassroom" element={<TeacherClassroom />} />
+            <Route path="integration" element={<Integration />} />
+          </Route>
+        )}
 
-        {/* Chatapp */}
+        {/* Chatapp is a mutual between two users Teachers and Students */}
         <Route path="messages" element={<Messages />}>
           <Route index element={<Chats />} />
           {paths.map((route, index) => {
@@ -48,11 +70,13 @@ export default function App() {
           })}
         </Route>
 
-        {/* Login,Fram */}
+        {/* Login, Main Login  */}
         <Route path="/">
-          <Route path="login" element={<Login />} />
-          <Route path="fram1" element={<Fram1 />} />
+        <Route path="/login" element={<Login />} />
         </Route>
+
+        {/* 404 */}
+        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </div>
   );

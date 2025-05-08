@@ -1,5 +1,4 @@
 import React from "react";
-import { MdSavedSearch } from "react-icons/md";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { TbMailSpark } from "react-icons/tb";
 

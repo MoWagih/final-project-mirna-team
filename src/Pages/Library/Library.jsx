@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { IoMdDownload } from "react-icons/io";
-import book1 from "../../assets/book1.png";
+import book1 from "../../assets/img/book1.png";
 import book2 from "../../assets/book2.png";
 import book3 from "../../assets/book3.png";
 import book4 from "../../assets/book4.png";

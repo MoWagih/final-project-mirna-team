@@ -1,12 +1,11 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import course1 from "../../assets/course1.png";
 import course2 from "../../assets/course2.png";
 import course3 from "../../assets/course3.png";
 import course4 from "../../assets/course4.png";
 import course5 from "../../assets/course5.png";
 import course6 from "../../assets/course6.png";
-import teacher from "../../assets/teacher.png";
+
 
 export default function Classroom() {
   return (
