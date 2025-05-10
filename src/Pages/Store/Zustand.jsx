@@ -47,8 +47,8 @@ export const useModal = create((set) => ({
   closeCourseCreationModal: () => set({ courseCreation: false }),
 
   addNewChapter: false,
-  openNewChapterModal: ()=>set({addNewChapter: true}),
-  closeNewChapterModal: ()=>set({addNewChapter: false}), 
+  openNewChapterModal: ()=> set({addNewChapter: true}),
+  closeNewChapterModal: ()=> set({addNewChapter: false}), 
 
   addBook: false,
   openBookModal: ()=> set({ addBook: true }),

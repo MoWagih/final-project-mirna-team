@@ -15,17 +15,7 @@ export default function Courses() {
       <div className="h-full w-full bg-gray-800 flex   rounded-2xl p-2 mb-2">
         <div className="container flex flex-col w-full h-full bg-slate-950 rounded-2xl">
           <div className="head w-full px-3 h-[8%] flex items-center justify-between">
-            <div className="w-100 flex  items-center justify-between">
-              <button className="cursor-pointer hover:tracking-wider  w-[130px] rounded-full  bg-transparent text-amber-50">
-                All Courses (12)
-              </button>
-              <button className="cursor-pointer hover:tracking-wider  w-[120px] rounded-full  bg-transparent text-amber-50">
-                Ongoing (7)
-              </button>
-              <button className="cursor-pointer hover:tracking-wider  w-[120px] rounded-full  bg-transparent text-amber-50">
-                Completed (5)
-              </button>
-            </div>
+          
             <button className="cursor-pointer hover:tracking-wider  w-[120px] rounded-full  bg-transparent text-amber-50">
               See all
             </button>

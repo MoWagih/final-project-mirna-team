@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 
 import { GoPlus } from "react-icons/go";
@@ -6,10 +6,20 @@ import SingleCourse from "./SingleCourse";
 import { useModal } from "../Store/Zustand";
 import CourseDetails from "./CourseDetails";
 import CourseCreation from "./CourseCreation";
+import axios from "axios";
 
 export default function TeacherCourses() {
 
-    const { courseDetails , courseCreation , openCourseCreationModal } = useModal();
+    const { courseDetails , courseCreation , openCourseDetails , openCourseCreationModal } = useModal();
+    const [selectedCourse, setSelectedCourse] = useState(null);
+    const [ courses , setCourses ] = useState([]);
+
+    useEffect(()=>{
+      axios.get("http://82.112.241.233:1400/api/courses?populate=*").then((res)=>{
+        console.log(res.data.data)
+        setCourses(res.data.data)
+      })
+    },[])
 
   return (
     <div className="w-full h-full flex flex-col">
@@ -26,12 +36,26 @@ export default function TeacherCourses() {
             </div>
             </div>
             {/* Single Course */}
-            <SingleCourse />
+           <div className="flex gap-2">
+           {
+              courses.map((el, index) => (
+                <SingleCourse
+                  key={index}
+                  course_title={el.course_title}
+                  course_cover={`http://82.112.241.233:1400${el.course_cover?.formats?.medium?.url}`}
+                  onClick={() => {
+                    setSelectedCourse(el);
+                    openCourseDetails();
+                  }}
+                />
+              ))
+            }
+           </div>
         </div>
       </div>
 
       {
-        courseDetails && <CourseDetails />
+        courseDetails && selectedCourse && <CourseDetails course={selectedCourse} />
       }
 
       {
