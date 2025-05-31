@@ -19,6 +19,7 @@ import TeacherExams from "./Pages/TeacherExams/TeacherExams";
 import TeacherClassroom from "./Pages/Classroom/TeacherClassroom";
 import TeacherCourses from "./Pages/Courses/TeacherCourses";
 import TeacherBooks from "./Pages/Library/TeacherBooks";
+import StudentExams from "./Pages/StudentExam.jsx/StudentExams";
 
 
 export default function App() {
@@ -40,6 +41,7 @@ useEffect(() => {
           <Route path="StudentDashboard" element={<Dashboard />} />
               <Route path="calender" element={<Calender />} />
               <Route path="library" element={<Library />} />
+              <Route path="exams" element={<StudentExams />} />
               <Route path="classroom" element={<Classroom />} />
               <Route path="courses" element={<Courses />} />
               <Route path="integration" element={<Integration />} />

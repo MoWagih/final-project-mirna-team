@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-
 import { GoPlus } from "react-icons/go";
-import SingleCourse from "./SingleCourse";
 import { useModal } from "../Store/Zustand";
+import SingleCourse from "./SingleCourse";
 import CourseDetails from "./CourseDetails";
 import CourseCreation from "./CourseCreation";
 import axios from "axios";
+import { motion } from "framer-motion";
+
 
 export default function TeacherCourses() {
 
@@ -23,35 +23,42 @@ export default function TeacherCourses() {
 
   return (
     <div className="w-full h-full flex flex-col">
-      <h1 className="text-amber-50 p-6 text-3xl">Courses</h1>
-      <Navbar />
-      <div className="h-full w-full bg-blue-950 flex rounded-2xl p-2 mb-2">
+        {/* Titles */}
+          <div className="flex items-center justify-between">
+            <h1 className="text-[#CCD6F6] p-6 text-3xl">Courses</h1>
+            <div onClick={openCourseCreationModal} className="flex items-center gap-3 text-[#e3e7f6] bg-[#5d1c9f] p-2 rounded-3xl">
+                <GoPlus className="bg-[#9857D3] text-[28px] p-1 rounded-2xl" />
+                <p>New Course</p>
+            </div>
+        </div>
+
+
         {/* Subjects Container */}
-        <div className="container flex flex-col w-full h-full rounded-2xl overflow-auto p-4 bg-blue-800 gap-2">
-            <div className="flex items-center justify-between text-white">
-                <h1>Current Subjects</h1>
-                <div onClick={openCourseCreationModal} className="flex items-center gap-3">
-                    <GoPlus />
-                <p>Add New Course</p>
-            </div>
-            </div>
-            {/* Single Course */}
+        <div className="bg-[#1f032b] grow p-4 rounded flex-wrap">
+        
+        {/* Single Course */}
            <div className="flex gap-2">
            {
-              courses.map((el, index) => (
-                <SingleCourse
-                  key={index}
-                  course_title={el.course_title}
-                  course_cover={`http://82.112.241.233:1400${el.course_cover?.formats?.medium?.url}`}
-                  onClick={() => {
-                    setSelectedCourse(el);
-                    openCourseDetails();
-                  }}
-                />
-              ))
+            
+            courses.map((el, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}>        
+                
+                  <SingleCourse
+                    key={index}
+                    course_title={el.course_title}
+                    course_cover={`http://82.112.241.233:1400${el.course_cover?.formats?.medium?.url}`}
+                    onClick={() => { setSelectedCourse(el); openCourseDetails(); }} />
+
+              </motion.div>
+                ))
+            
             }
            </div>
-        </div>
+        
       </div>
 
       {

@@ -14,8 +14,9 @@ export default function TeacherLayout() {
   }, []);
 
   return (
-    <div className="flex bg-blue-950 h-[100vh] overflow-hidden">
+    <div className="flex bg-[#2B0B3A] h-[100vh] overflow-hidden">
       <Sidebar user={user} />
+      
       <div className="flex-1 p-4">
         <Outlet />
       </div>

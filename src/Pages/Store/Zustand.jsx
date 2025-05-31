@@ -54,6 +54,10 @@ export const useModal = create((set) => ({
   openBookModal: ()=> set({ addBook: true }),
   closeBookModal: ()=> set({ addBook: false }),
 
+  studentExamModal: false,
+  openStudentExam: ()=>set({ studentExamModal: true }),
+  closeStudentExam: ()=>set({ studentExamModal: false }),
+
 
 }));
 
@@ -82,6 +86,7 @@ export const useLinks = create(() => ({
   studentLinks: [
     { name: "dashboard", icon: MdDashboard, path: "/StudentDashboard" },
     { name: "courses", icon: GoStarFill, path: "/courses" },
+    { name: "Exams", icon: GoStarFill, path: "/Exams" },
     { name: "library", icon: IoLibrary, path: "/library" },
     { name: "calender", icon: SlCalender, path: "/calender" },
     { name: "messages", icon: BiMessageSquareDetail, path: "/messages" },

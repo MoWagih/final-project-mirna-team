@@ -57,7 +57,7 @@ export default function Login() {
   return (
     <div className="coverL h-[100vh] w-full ">
       <div className="parentLogin h-[100vh]  flex flex-col items-center justify-center text-white">
-        <div className="h-[390px] w-80  bg-purple-950/90 shadow-lg shadow-purple-700 px-6 my-4 overflow-hidden rounded-lg">
+        <div className="h-[390px] w-80 pt-10  bg-purple-950/90 shadow-lg shadow-purple-700 px-6 my-4 overflow-hidden rounded-lg">
           {/* ----login---- */}
 
           <div>
@@ -71,7 +71,7 @@ export default function Login() {
                   placeholder="Email"
                   ref={userEmail}
                 />
-                <TbMailFilled className="absolute top-[35%] right-3" />
+                <TbMailFilled className="text-purple-950 absolute top-[35%] right-3" />
               </div>
               <div className="w-full relative">
                 <input
@@ -80,16 +80,9 @@ export default function Login() {
                   placeholder="Password"
                   ref={userPassword}
                 />
-                <FaLock className="absolute top-[35%] right-3" />
+                <FaLock className="text-purple-950 absolute top-[35%] right-3" />
               </div>
-              <div className="flex justify-between w-full">
-                <div className="text-[14px] flex gap-2">
-                  <input type="checkbox" name="" id="" />
-                  <label htmlFor="">Remember Me</label>
-                </div>
-                <span className="text-[14px]">Forgot Password?</span>
-              </div>
-              <button className="cursor-pointer hover:tracking-wider my-2 py-2 w-full rounded-full border border-amber-100 bg-transparent text-amber-100">
+              <button className="cursor-pointer border-2 hover:tracking-wider my-2 py-2 w-full rounded-full border-amber-50 bg-transparent text-amber-100">
                 Login
               </button>
             </form>

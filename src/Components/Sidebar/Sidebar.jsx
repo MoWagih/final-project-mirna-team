@@ -25,7 +25,7 @@ export default function Sidebar({ user }) {
 
   return (
     <div className="flex">
-      <div className={`bg-gray-800 flex rounded-r-3xl flex-col items-center h-screen p-5 pt-8 duration-300 relative ${open ? "w-50" : "w-20"}`}>
+      <div className={`bg-[#1f032b] flex rounded-r-3xl flex-col items-center h-screen p-5 pt-8 duration-300 relative ${open ? "w-50" : "w-20"}`}>
         <IoMdArrowRoundBack
           className={`bg-amber-50 text-slate-950 text-3xl rounded-full absolute -right-3 top-9 cursor-pointer ${!open && "rotate-180 w-6 h-6"}`}
           onClick={() => setOpen(!open)} />
@@ -36,7 +36,7 @@ export default function Sidebar({ user }) {
               {sidebarLinks.map((el, index) => {
               const Icon = el.icon;
               return (
-                <Link to={el.path} key={index} className="p-3 w-full hover:bg-amber-500 rounded-md">
+                <Link to={el.path} key={index} className="p-3 w-full hover:bg-[#2B0B3A] rounded-md">
                   <div className="w-full flex gap-3 items-center">
                     <Icon className="text-amber-50 h-5 w-5" />
                     <p className={`text-amber-50 ${!open && "hidden"}`}>{el.name}</p>

@@ -33,10 +33,13 @@ export default function TeacherNewExam({ refreshExams }) {
       for (const question of questions) {
         const questionData = {
           data: {
-            text: question.question_text,
-            answers: question.options.map(opt => opt.text),
-            correct: question.correct_answer, // غيرنا correct_answer لـ correct
-            score: question.points, // غيرنا points لـ score
+            question_title: question.question_text,
+            choice_a: question.options[0].text,
+            choice_b: question.options[1].text,
+            choice_c: question.options[2].text,
+            choice_d: question.options[3].text,
+            correct_answer: question.correct_answer, // غيرنا correct_answer لـ correct
+            points: question.points, // غيرنا points لـ score
             publishedAt: new Date().toISOString(),
           },
         };
@@ -56,10 +59,12 @@ export default function TeacherNewExam({ refreshExams }) {
       // الخطوة 2: إنشاء الامتحان مع معرفات الأسئلة
       const examData = {
         data: {
-          title: examTitle, // غيرنا exam_title لـ title
-          duration: examDuration, // غيرنا exam_duration لـ duration
-          total_points: questions.reduce((total, q) => total + q.points, 0), // غيرنا exam_points لـ total_points
-          questions: questionIds,
+          exam_title: examTitle, // غيرنا exam_title لـ title
+          exam_duration: examDuration, // غيرنا exam_duration لـ duration
+          exam_points: questions.reduce((total, q) => total + q.points, 0), // غيرنا exam_points لـ total_points
+          questions: {
+            connect: questionIds.map((id) => ({ id })),
+          },
           publishedAt: new Date().toISOString(),
         },
       };
@@ -76,7 +81,9 @@ export default function TeacherNewExam({ refreshExams }) {
       console.log('تم نشر الامتحان بنجاح:', examResponse.data);
       closeNewExam();
       refreshExams();
-    } catch (error) {
+      } 
+      
+      catch (error) {
       console.error('فشل نشر الامتحان:', {
         message: error.message,
         code: error.code,
@@ -86,8 +93,11 @@ export default function TeacherNewExam({ refreshExams }) {
         } : null,
         request: error.request ? error.request : null,
       });
+      console.log(error)
       alert(`فشل نشر الامتحان: ${error.response?.data?.error?.message || error.message}`);
-    } finally {
+    } 
+    
+    finally {
       setIsLoading(false);
     }
   };

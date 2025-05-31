@@ -1,17 +1,14 @@
-import { useModal } from "../Store/Zustand"
-import course1 from "../../assets/img/course1.png"
-import teacher from "../../assets/img/teacher.png"
+
 
 
 export default function SingleCourse({ course_title , course_cover , onClick }) {
   return (
-    <div onClick={onClick} className="w-[35%] rounded-2xl bg-blue-950 flex flex-col gap-3 items-center justify-between p-4">
-              <div className="relative w-full h-full">
-                <img className="w-full h-40 rounded-2xl" src={course_cover} alt="" />
-              </div>
-              <div className="courseName flex w-full pl-1">
-                <p className="text-amber-50">{course_title}</p>
-              </div>
-            </div>
+    <div onClick={onClick} style={{ backgroundImage: `url(${course_cover})`}}  className="w-[200px] h-[260px] relative rounded bg-[#5d1c9f]  flex  p-2 shadow-lg bg-cover">
+
+      <div className="absolute bg-[#15041a76] w-full h-full top-0 left-0 flex items-center justify-center">
+          <p className="text-amber-50 text-[24px]">{course_title}</p>
+      </div>
+               
+    </div>
   )
 }

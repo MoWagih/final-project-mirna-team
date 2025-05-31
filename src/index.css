@@ -12,3 +12,16 @@ body,.App,#root{
    min-height: 100vh;
    font-family: "Poppins", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 1.5px;
+}
+
+::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(164, 179, 4);
+  border-radius: 10%;
+}

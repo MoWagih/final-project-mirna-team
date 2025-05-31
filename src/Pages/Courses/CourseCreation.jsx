@@ -87,6 +87,8 @@ export default function CourseCreation() {
     
                 await axios.post("http://82.112.241.233:1400/api/chapters", chapterData);
             }
+
+            console.log(res.data)
     
             alert("Course and Chapters created successfully!");
             closeCourseCreationModal(); // اقفل المودال لو عايز
@@ -102,6 +104,7 @@ export default function CourseCreation() {
 
 
   return (
+    
     <div className="bg-blue-950 p-3 sm:h-[100vh] sm:overflow-hidden flex flex-col gap-3 absolute top-0 left-0 w-full">        
         {/* Exams Container */}
         <div className="bg-gray-900 p-4 rounded-2xl text-white h-full overflow-hidden">
