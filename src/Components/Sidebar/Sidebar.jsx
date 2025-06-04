@@ -10,11 +10,11 @@ export default function Sidebar({ user }) {
 
   const navigate = useNavigate();
 
-  const { teacherLinks , studentLinks , commonLinks } = useLinks();
+  const { teacherLinks , studentLinks } = useLinks();
   const role = user?.User_Role;
   const roleLinks = role === "Teacher" ? teacherLinks : studentLinks;
 
-  const sidebarLinks = [...roleLinks, ...commonLinks];
+  const sidebarLinks = [...roleLinks];
 
   const handleLogout = () => {
     localStorage.removeItem("token");

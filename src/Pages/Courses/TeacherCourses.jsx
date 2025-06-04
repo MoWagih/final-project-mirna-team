@@ -34,10 +34,9 @@ export default function TeacherCourses() {
 
 
         {/* Subjects Container */}
-        <div className="bg-[#1f032b] grow p-4 rounded flex-wrap">
+        <div className="bg-[#1f032b] grow justify-between gap-3 p-4 rounded flex-wrap flex overflow-auto">
         
         {/* Single Course */}
-           <div className="flex gap-2">
            {
             
             courses.map((el, index) => (
@@ -57,7 +56,7 @@ export default function TeacherCourses() {
                 ))
             
             }
-           </div>
+           
         
       </div>
 

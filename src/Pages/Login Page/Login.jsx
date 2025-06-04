@@ -33,18 +33,15 @@ export default function Login() {
 
       const user = meRes.data;
       localStorage.setItem("user", JSON.stringify(user));
-
+      
       const role = user?.User_Role;
-      console.log("User role:", role);
-      
       if (role === "Teacher") {
-      navigate("/TeacherDashboard");
-    } else if (role === "Student") {
-      navigate("/StudentDashboard");
-    } else {
-      alert(`Role '${role}' not recognized`);
-    }
-      
+        navigate('/Teacher');
+      } else if ( role === "Student") {
+        navigate('/Student');
+      } else {
+        alert("Go Away Plaese");
+      }
     }
     catch (err) {
       console.error("Login failed:", err);
@@ -56,22 +53,24 @@ export default function Login() {
  
   return (
     <div className="coverL h-[100vh] w-full ">
-      <div className="parentLogin h-[100vh]  flex flex-col items-center justify-center text-white">
-        <div className="h-[390px] w-80 pt-10  bg-purple-950/90 shadow-lg shadow-purple-700 px-6 my-4 overflow-hidden rounded-lg">
-          {/* ----login---- */}
-
-          <div>
-            <h2 className="text-3xl font-bold pb-6 text-center">Login</h2>
+      <div className="parentLogin h-[100vh] flex flex-col items-center justify-center text-white">
+        
+        {/* Login Form with Title */}
+        <div className="w-[90%] sm:w-[65%] sm:p-6 sm:gap-6 md:w-[55%] md:p-8 lg:w-[45%] flex flex-col gap-4 p-2 bg-purple-950/90 shadow-md shadow-purple-700 rounded-lg">
             
-            <form className="flex flex-col items-center" onSubmit={handleLogin}>
+            {/* Title of Form "Login" */}
+            <h2 className="text-3xl font-medium text-center pt-2 pb-2">Login</h2>
+            
+            {/* Form and Inputs */}
+            <form className="flex flex-col gap-2 items-center pb-3" onSubmit={handleLogin}>
               <div className="w-full relative">
                 <input
-                  className="w-full border  border-amber-100  rounded-full py-2 px-4 my-2 bg-transparent"
+                  className="w-full border border-amber-100 rounded-full py-2 px-4 my-2 bg-transparent"
                   type="email"
                   placeholder="Email"
                   ref={userEmail}
                 />
-                <TbMailFilled className="text-purple-950 absolute top-[35%] right-3" />
+                <TbMailFilled className="text-white absolute top-[35%] right-3" />
               </div>
               <div className="w-full relative">
                 <input
@@ -80,13 +79,13 @@ export default function Login() {
                   placeholder="Password"
                   ref={userPassword}
                 />
-                <FaLock className="text-purple-950 absolute top-[35%] right-3" />
+                <FaLock className="text-white absolute top-[35%] right-3" />
               </div>
               <button className="cursor-pointer border-2 hover:tracking-wider my-2 py-2 w-full rounded-full border-amber-50 bg-transparent text-amber-100">
                 Login
               </button>
             </form>
-          </div>
+          
         </div>
       </div>
     </div>

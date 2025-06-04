@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import Mainlayout from "../Mainlayout/Mainlayout";
 export default function Dashboard() {
+  
   const courses = [
     {
       cname: "math",
@@ -17,6 +17,8 @@ export default function Dashboard() {
     if (filled < 100 && loading) {
       setTimeout(() => setFilled((prev) => (prev += 5)), 50);
     }
+
+    
   }, [filled, loading]);
   return (
     <div className="w-full h-full flex flex-col">

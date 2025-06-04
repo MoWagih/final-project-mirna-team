@@ -74,25 +74,23 @@ export const usePaths = create(() => ({
 
 export const useLinks = create(() => ({
   teacherLinks: [
-    { name: "Dashboard", icon: MdDashboard, path: "/TeacherDashboard" },
-    { name: "Courses", icon: GoStarFill, path: "/courses" },
-    { name: "Calender", icon: SlCalender, path: "/Calender" },
-    { name: "Exams", icon: SiGoogleclassroom, path: "/TeacherExams" },
-    { name: "library", icon: IoLibrary, path: "/library" },
-    { name: "Classrooms", icon: SiGoogleclassroom, path: "/TeacherClassroom" },
-    { name: "Messages", icon: BiMessageSquareDetail, path: "/messages" },
+    { name: "Dashboard", icon: MdDashboard, path: "/Teacher" },
+    { name: "Courses", icon: GoStarFill, path: "/Teacher/courses" },
+    { name: "Calender", icon: SlCalender, path: "/Teacher/Calender" },
+    { name: "Exams", icon: SiGoogleclassroom, path: "/Teacher/TeacherExams" },
+    { name: "library", icon: IoLibrary, path: "/Teacher/library" },
+    { name: "Classrooms", icon: SiGoogleclassroom, path: "/Teacher/TeacherClassroom" },
+    { name: "integration", icon: RiMastercardLine, path: "/Teacher/integration" },
+
   ],
 
   studentLinks: [
-    { name: "dashboard", icon: MdDashboard, path: "/StudentDashboard" },
-    { name: "courses", icon: GoStarFill, path: "/courses" },
-    { name: "Exams", icon: GoStarFill, path: "/Exams" },
-    { name: "library", icon: IoLibrary, path: "/library" },
-    { name: "calender", icon: SlCalender, path: "/calender" },
-    { name: "messages", icon: BiMessageSquareDetail, path: "/messages" },
+    { name: "dashboard", icon: MdDashboard, path: "/Student" },
+    { name: "courses", icon: GoStarFill, path: "/Student/courses" },
+    { name: "Exams", icon: GoStarFill, path: "/Student/Exams" },
+    { name: "library", icon: IoLibrary, path: "/Student/library" },
+    { name: "calender", icon: SlCalender, path: "/Student/calender" },
+    { name: "integration", icon: RiMastercardLine, path: "/Student/integration" },
   ],
-
-  commonLinks: [
-    { name: "integration", icon: RiMastercardLine, path: "/integration" },
-  ]
+  
 }));

@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import Profile from "../../Components/Profile/Profile";
 
 import { Outlet } from "react-router-dom";
 

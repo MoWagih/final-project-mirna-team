@@ -100,9 +100,6 @@ export default function CourseCreation() {
     };
     
 
-    
-
-
   return (
     
     <div className="bg-blue-950 p-3 sm:h-[100vh] sm:overflow-hidden flex flex-col gap-3 absolute top-0 left-0 w-full">        
@@ -113,7 +110,7 @@ export default function CourseCreation() {
                 <h1 className="text-[26px]">Upload New Course</h1>
                 <div className="flex items-center gap-3">
                     {/* <button className="ps-2 pe-2 p-1 bg-blue-800 rounded-2xl">New Question</button> */}
-                    <button onClick={(e) => {e.preventDefault(); handleSubmit(); }}  className="ps-2 pe-2 p-1 bg-green-800 rounded-2xl">Publish Course</button>
+                    <button onClick={(e) => {e.preventDefault();  handleSubmit(); }}  className="ps-2 pe-2 p-1 bg-green-800 rounded-2xl">Publish Course</button>
                     <button onClick={closeCourseCreationModal} className="ps-2 pe-2 p-1 underline">Go Back</button>
                 </div>
             </div>
@@ -129,20 +126,14 @@ export default function CourseCreation() {
                             {/* title input */}
                             <input  type="text" className="border rounded p-2 border-blue-600" placeholder="Enter Course Title" value={courseTitle} onChange={(e) => setCourseTitle(e.target.value)}  />
 
-
                             {/* description input */}
                             <label htmlFor="Description">Description</label>
                             <textarea value={courseDescription} onChange={(e) => setCourseDescription(e.target.value)} placeholder="Enter Description" className="resize-none border rounded border-blue-600 h-[20vh] p-2 overflow-auto"></textarea>
 
 
-
-
                             {/* img input */}
                             <label htmlFor="examTitle">Choose Cover Img:</label>
                             <input onChange={(e) => setCoverImage(e.target.files[0])} type="file" id="img" name="imgUpload" accept="image/*" className="border rounded p-2 border-blue-600"  />
-
-
-
 
                         </div>
 
