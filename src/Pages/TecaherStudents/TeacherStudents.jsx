@@ -37,7 +37,6 @@ export default function TeacherStudents() {
         `http://82.112.241.233:1400/api/teacher-students?filters[teacher][id][$eq]=${fetchedUserId}&populate=students`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log("My Students Raw Response:", myStudentsRes.data.data);
 
       // معالجة بيانات الطلاب
       let studentData = [];
@@ -46,7 +45,6 @@ export default function TeacherStudents() {
         const teacherEntry = myStudentsRes.data.data[0];
         if (teacherEntry.students && teacherEntry.students.length > 0) {
           studentData = teacherEntry.students.filter(student => student && student.id);
-          console.log("Processed My Students:", studentData);
         } else {
           console.warn("No students found in teacher entry:", teacherEntry);
         }

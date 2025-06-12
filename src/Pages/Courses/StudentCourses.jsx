@@ -39,7 +39,6 @@ export default function StudentCourses() {
         `http://82.112.241.233:1400/api/courses?filters[students][id][$eq]=${studentId}&populate=*`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log("Raw Courses Response:", coursesRes.data.data);
 
       // معالجة الكورسات وإزالة التكرار
       const uniqueCourses = [];
@@ -50,7 +49,6 @@ export default function StudentCourses() {
           uniqueCourses.push(course);
         }
       });
-      console.log("Processed Unique Courses:", uniqueCourses);
       setCourses(uniqueCourses);
     } catch (err) {
       console.error("Error fetching courses:", JSON.stringify(err.response?.data, null, 2), err.message);

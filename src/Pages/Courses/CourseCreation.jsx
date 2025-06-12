@@ -5,7 +5,7 @@ import { useModal } from "../Store/Zustand";
 import SingleChapter from "../../Components/SingleChapter/SingleChapter";
 import AddNewChapter from "../../Components/Chapter/AddNewChapter";
 
-export default function CourseCreation() {
+export default function CourseCreation({ refreshCourses }) {
   // الحالات الأساسية
   const { closeCourseCreationModal, openNewChapterModal, addNewChapter } = useModal();
   const [courseTitle, setCourseTitle] = useState("");
@@ -179,6 +179,11 @@ export default function CourseCreation() {
         await axios.post("http://82.112.241.233:1400/api/chapters", chapterData, {
           headers: { Authorization: `Bearer ${token}` },
         });
+      }
+
+      // تحديث قائمة الكورسات في TeacherCourses
+      if (refreshCourses) {
+        await refreshCourses();
       }
 
       alert("Course and Chapters created successfully!");
