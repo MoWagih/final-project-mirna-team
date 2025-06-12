@@ -19,6 +19,8 @@ import { BiMessageSquareDetail } from "react-icons/bi";
 import { GoStarFill } from "react-icons/go";
 import { IoLibrary } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
+import { PiStudent } from "react-icons/pi";
+
 
 
 export const useModal = create((set) => ({
@@ -76,6 +78,7 @@ export const useLinks = create(() => ({
   teacherLinks: [
     { name: "Dashboard", icon: MdDashboard, path: "/Teacher" },
     { name: "Courses", icon: GoStarFill, path: "/Teacher/courses" },
+    { name: "Students", icon: PiStudent , path: "/Teacher/Students" },
     { name: "Calender", icon: SlCalender, path: "/Teacher/Calender" },
     { name: "Exams", icon: SiGoogleclassroom, path: "/Teacher/TeacherExams" },
     { name: "library", icon: IoLibrary, path: "/Teacher/library" },

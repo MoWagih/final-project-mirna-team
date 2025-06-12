@@ -21,6 +21,8 @@ import TeacherCourses from "./Pages/Courses/TeacherCourses";
 import TeacherBooks from "./Pages/Library/TeacherBooks";
 import StudentExams from "./Pages/StudentExam.jsx/StudentExams";
 import ProtectedRoute from "./Pages/ProtectedRoute/ProtectedRoute";
+import StudentCourses from "./Pages/Courses/StudentCourses";
+import TeacherStudents from "./Pages/TecaherStudents/TeacherStudents";
 
 export default function App() {
   const { paths } = usePaths();
@@ -69,10 +71,10 @@ export default function App() {
                 <Route path="/Student/library" element={<Library />} />
                 <Route path="/Student/exams" element={<StudentExams />} />
                 <Route path="/Student/classroom" element={<Classroom />} />
-                <Route path="/Student/courses" element={<Courses />} />
+                <Route path="/Student/courses" element={<StudentCourses />} />
                 <Route path="/Student/integration" element={<Integration />} />
                 <Route path="/Student/assignments" element={<Assignments />} />
-                <Route path="/Student/attendance" element={<Attendance />} />
+                {/* <Route path="/Student/attendance" element={<Attendance />} /> */}
                 <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Route>
 
@@ -82,6 +84,7 @@ export default function App() {
             </ProtectedRoute>}>
           <Route index element={<DashboardTeacher />} />
           <Route path="/Teacher/TeacherExams" element={<TeacherExams />} />
+          <Route path="/Teacher/Students" element={<TeacherStudents />} />
           <Route path="/Teacher/calender" element={<Calender />} />
           <Route path="/Teacher/library" element={<TeacherBooks />} />
           <Route path="/Teacher/courses" element={<TeacherCourses />} />
